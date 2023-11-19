@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess Board</title>
+    <link rel="stylesheet" type="text/css" href="_css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="_css/styles.css">
+    <link rel="stylesheet" type="text/css" href="_css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="_css/jquery-ui.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+
+    <script type="text/javascript" rel="script" src="_js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" rel="script" src="_js/jquery-ui.min.js"></script>
+    <script type="text/javascript" rel="script" src="_js/bootstrap.min.js"></script>
+
+</head>
+<style>
+        /* This section is used for the dropdown menu*/
+body { 
+  background: #ccc;
+  font-family: helvetica, arial, serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+}
+ 
+.wrap {
+  display: inline-block;
+  -webkit-box-shadow: 0 0 70px #fff;
+  -moz-box-shadow: 0 0 70px #fff;
+  box-shadow: 0 0 70px #fff;
+  margin-top: 0px;
+}
+
+/* a little "umph" */
+.decor {
+  background: #6EAF8D;
+  background: -webkit-linear-gradient(left, #CDEBDB 50%, #6EAF8D 50%);
+  background: -moz-linear-gradient(left, #CDEBDB 50%, #6EAF8D 50%);
+  background: -o-linear-gradient(left, #CDEBDB 50%, #6EAF8D 50%);
+  background: linear-gradient(left, white 50%, #6EAF8D 50%);
+  background-size: 50px 25%;;
+  padding: 2px;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  position: relative;
+  text-align: left;
+  padding: 0;
+}
+
+li {
+  float: left;
+}
+
+/* clear'n floats */
+ul:after {
+  clear: both;
+}
+
+ul:before,
+ul:after {
+    content: " ";
+    display: table;
+}
+
+nav {
+  position: relative;
+  background: #2B2B2B;
+  background-image: -webkit-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
+  background-image: -moz-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
+  background-image: -o-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
+  background-image: linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
+  text-align: left;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px #0E0E0E;
+  -webkit-box-shadow: 2px 2px 3px #888;
+  -moz-box-shadow: 2px 2px 3px #888;
+  box-shadow: 2px 2px 3px #888;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* prime */
+ul.primary li a {
+  display: block;
+  padding: 20px 30px;
+  border-right: 1px solid #3D3D3D;
+}
+
+ul.primary li:last-child a {
+  border-right: none;
+}
+
+ul.primary li a:hover {
+  
+  color: #000;
+}
+
+/* subs */
+ul.sub {
+  position: absolute;
+  z-index: 200;
+  box-shadow: 2px 2px 0 #BEBEBE;
+  width: 35%;
+  display:none;
+}
+
+ul.sub li {
+  float: none;
+  margin: 0;
+}
+
+ul.sub li a {
+  border-bottom: 1px dotted #ccc;
+  border-right: none;
+  color: #000;
+  padding: 15px 30px;
+}
+
+ul.sub li:last-child a {
+  border-bottom: none;
+}
+
+ul.sub li a:hover {
+  color: #000;
+  background: #eeeeee;
+}
+
+/* sub display*/
+ul.primary li:hover ul {
+  display: block;
+  background: #fff;
+}
+
+/* keeps the tab background white */
+ul.primary li:hover a {
+  background: #fff;
+  color: #666;
+  text-shadow: none;
+}
+
+ul.primary li:hover > a{
+  color: #000;
+} 
+
+@media only screen and (max-width: 600px) {
+  .decor {
+    padding: 3px;
+  }
+  
+  .wrap {
+    width: 100%;
+    margin-top: 0px;
+  }
+  
+   li {
+    float: none;
+  }
+  
+  ul.primary li:hover a {
+    background: none;
+    color: #8B8B8B;
+    text-shadow: 1px 1px #000;
+  }
+
+  ul.primary li:hover ul {
+    display: block;
+    background: #272727;
+    color: #fff;
+  }
+  
+  ul.sub {
+    display: block;  
+    position: static;
+    box-shadow: none;
+    width: 100%;
+  }
+  
+  ul.sub li a {
+    background: #272727;
+    border: none;
+    color: #8B8B8B;
+  }
+  
+  ul.sub li a:hover {
+    color: #ccc;
+    background: none;
+  }
+}
+
+/* The end of dropdown menu*/
+
+/* Title text */
+h1{
+  font-family:Black Ops One ;
+  font-size: 40px;
+  color: black;
+
+}
+
+.link{color: black;}
+</style>
+
+
+
+<body>
+
+       <!--Title-->
+       <a class="link" href="MatherChess.html"><h1>Mather High School Chess Club</a></h1>
+
+       <!--Dropdown menu-->
+         <div class="wrap">
+         <span class="decor"></span>
+         <nav>
+           <ul class="primary">
+             <li>
+               <a href="">About us</a>
+               <ul class="sub">
+                 <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeGsXf1eD_zoCgVpsHSsyMoDjLzyhGMaT5GhIL2p5E0P7-NMA/viewform?hr_submission=ChkI7aWJv54BEhAI9vq9wMEOEgcI_qjMk8QBEAE">Join Chess Club</a></li>
+                 <li><a href="https://classroom.google.com/c/NTI2NTQ0NDU2OTRa?cjc=6vjhjml">Google Classroom</a></li>
+                 <li><a href="https://twitter.com/MatherChess">Twitter</a></li>
+                 <li><a href="ContactUs.html">Contact Us</a></li>
+               </ul>
+             </li>
+             <li>
+               <a href="">Official chess platform</a>
+               <ul class="sub">
+                 <li><a href="https://lichess.org/">Lichess</a></li>
+                 <li><a href="https://chess.com">Chess.com</a></li>
+                 <li><a href="https://www.chesskid.com/">ChessKid</a></li>
+               </ul>
+             </li>
+             <li>
+               <a href="ChessBoard.html">Chessboard</a>
+             </li>
+             <li>
+               <a href="">Chess Lesson</a>
+               <ul class="sub">
+                 <li><a href="Beginner.html">Beginner</a></li>
+                 <li><a href="Opening.html">Opening</a></li>
+                 <li><a href="MiddleGame.html">Middle game</a></li>
+                 <li><a href="EndGame.html">End game</a></li>
+               </ul>  
+             </li>
+             <li>
+               <a href="https://cpschess.org/">Upcoming Tournament</a>
+             </li>
+             <li>
+               <a href="https://results.cpschess.org/">Tournament Results</a>
+             </li>
+           </ul>
+         </nav>
+         </div>
+
+
+
+    <div id="message-div"></div>
+    <div class="container" style="position: center; top: 40px; left: 410px; width: 522px; height: 522px;border: 1px solid black;">
+        <div id="row-8" class="row">
+
+            <div id="cell-white-8A" class="col-md-1 cell"><span id="p-black-castle-1" class="black-piece">&#9820</span></div>
+            <div id="cell-black-8B" class="col-md-1 cell"><span id="p-black-knight-1" class="black-piece">&#9822</span></div>
+            <div id="cell-white-8C" class="col-md-1 cell"><span id="p-black-bishop-1" class="black-piece">&#9821</span></div>
+            <div id="cell-black-8D" class="col-md-1 cell"><span id="p-black-queen" class="black-piece">&#9819</span></div>
+            <div id="cell-white-8E" class="col-md-1 cell"><span id="p-black-king" class="black-piece">&#9818</span></div>
+            <div id="cell-black-8F" class="col-md-1 cell"><span id="p-black-bishop-2" class="black-piece">&#9821</span></div>
+            <div id="cell-white-8G" class="col-md-1 cell"><span id="p-black-knight-2" class="black-piece">&#9822</span></div>
+            <div id="cell-black-8H" class="col-md-1 cell"><span id="p-black-castle-2" class="black-piece">&#9820</span></div>
+
+        </div>
+        <div id="row-7" class="row">
+
+            <div id="cell-black-7A" class="col-md-1 cell"><span id="p-black-pawn-1" class="black-piece">&#9823</span></div>
+            <div id="cell-white-7B" class="col-md-1 cell"><span id="p-black-pawn-2" class="black-piece">&#9823</span></div>
+            <div id="cell-black-7C" class="col-md-1 cell"><span id="p-black-pawn-3" class="black-piece">&#9823</span></div>
+            <div id="cell-white-7D" class="col-md-1 cell"><span id="p-black-pawn-4" class="black-piece">&#9823</span></div>
+            <div id="cell-black-7E" class="col-md-1 cell"><span id="p-black-pawn-5" class="black-piece">&#9823</span></div>
+            <div id="cell-white-7F" class="col-md-1 cell"><span id="p-black-pawn-6" class="black-piece">&#9823</span></div>
+            <div id="cell-black-7G" class="col-md-1 cell"><span id="p-black-pawn-7" class="black-piece">&#9823</span></div>
+            <div id="cell-white-7H" class="col-md-1 cell"><span id="p-black-pawn-8" class="black-piece">&#9823</span></div>
+
+        </div>
+
+        <div id="row-6" class="row">
+
+            <div id="cell-white-6A" class="col-md-1 cell"></div>
+            <div id="cell-black-6B" class="col-md-1 cell"></div>
+            <div id="cell-white-6C" class="col-md-1 cell"></div>
+            <div id="cell-black-6D" class="col-md-1 cell"></div>
+            <div id="cell-white-6E" class="col-md-1 cell"></div>
+            <div id="cell-black-6F" class="col-md-1 cell"></div>
+            <div id="cell-white-6G" class="col-md-1 cell"></div>
+            <div id="cell-black-6H" class="col-md-1 cell"></div>
+
+        </div>
+        <div id="row-5" class="row">
+
+            <div id="cell-black-5A" class="col-md-1 cell"></div>
+            <div id="cell-white-5B" class="col-md-1 cell"></div>
+            <div id="cell-black-5C" class="col-md-1 cell"></div>
+            <div id="cell-white-5D" class="col-md-1 cell"></div>
+            <div id="cell-black-5E" class="col-md-1 cell"></div>
+            <div id="cell-white-5F" class="col-md-1 cell"></div>
+            <div id="cell-black-5G" class="col-md-1 cell"></div>
+            <div id="cell-white-5H" class="col-md-1 cell"></div>
+
+        </div>
+
+        <div id="row-4" class="row">
+
+            <div id="cell-white-4A" class="col-md-1 cell"></div>
+            <div id="cell-black-4B" class="col-md-1 cell"></div>
+            <div id="cell-white-4C" class="col-md-1 cell"></div>
+            <div id="cell-black-4D" class="col-md-1 cell"></div>
+            <div id="cell-white-4E" class="col-md-1 cell"></div>
+            <div id="cell-black-4F" class="col-md-1 cell"></div>
+            <div id="cell-white-4G" class="col-md-1 cell"></div>
+            <div id="cell-black-4H" class="col-md-1 cell"></div>
+
+        </div>
+        <div id="row-3" class="row">
+
+            <div id="cell-black-3A" class="col-md-1 cell"></div>
+            <div id="cell-white-3B" class="col-md-1 cell"></div>
+            <div id="cell-black-3C" class="col-md-1 cell"></div>
+            <div id="cell-white-3D" class="col-md-1 cell"></div>
+            <div id="cell-black-3E" class="col-md-1 cell"></div>
+            <div id="cell-white-3F" class="col-md-1 cell"></div>
+            <div id="cell-black-3G" class="col-md-1 cell"></div>
+            <div id="cell-white-3H" class="col-md-1 cell"></div>
+
+        </div>
+
+        <div id="row-2" class="row">
+
+            <div id="cell-white-2A" class="col-md-1 cell"><span id="p-white-pawn-1" class="white-piece">&#9817</span></div>
+            <div id="cell-black-2B" class="col-md-1 cell"><span id="p-white-pawn-2" class="white-piece">&#9817</span></div>
+            <div id="cell-white-2C" class="col-md-1 cell"><span id="p-white-pawn-3" class="white-piece">&#9817</span></div>
+            <div id="cell-black-2D" class="col-md-1 cell"><span id="p-white-pawn-4" class="white-piece">&#9817</span></div>
+            <div id="cell-white-2E" class="col-md-1 cell"><span id="p-white-pawn-5" class="white-piece">&#9817</span></div>
+            <div id="cell-black-2F" class="col-md-1 cell"><span id="p-white-pawn-6" class="white-piece">&#9817</span></div>
+            <div id="cell-white-2G" class="col-md-1 cell"><span id="p-white-pawn-7" class="white-piece">&#9817</span></div>
+            <div id="cell-black-2H" class="col-md-1 cell"><span id="p-white-pawn-8" class="white-piece">&#9817</span></div>
+
+        </div>
+        <div id="row-1" class="row">
+
+            <div id="cell-black-1A" class="col-md-1 cell"><span id="p-white-castle-1" class="white-piece">&#9814</span></div>
+            <div id="cell-white-1B" class="col-md-1 cell"><span id="p-white-knight-1" class="white-piece">&#9816</span></div>
+            <div id="cell-black-1C" class="col-md-1 cell"><span id="p-white-bishop-1" class="white-piece">&#9815</span></div>
+            <div id="cell-white-1D" class="col-md-1 cell"><span id="p-white-queen" class="white-piece">&#9813</span></div>
+            <div id="cell-black-1E" class="col-md-1 cell"><span id="p-white-king" class="white-piece">&#9812</span></div>
+            <div id="cell-white-1F" class="col-md-1 cell"><span id="p-white-bishop-2" class="white-piece">&#9815</span></div>
+            <div id="cell-black-1G" class="col-md-1 cell"><span id="p-white-knight-2" class="white-piece">&#9816</span></div>
+            <div id="cell-white-1H" class="col-md-1 cell"><span id="p-white-castle-2" class="white-piece">&#9814</span></div>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript" rel="script" src="_js/script.js"></script>
+</body>
+</html>
